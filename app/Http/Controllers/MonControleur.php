@@ -12,5 +12,14 @@ class MonControleur extends Controller
         return view('index');
     }
 
+    function photos(){
+        $photos = DB::select("SELECT * FROM photos");
+        return view('photos');
+    }
+
+    function albums(){
+        return view('albums');
+    }
+
 
 }

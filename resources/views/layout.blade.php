@@ -16,7 +16,6 @@
         <a> Photos </a>
         <a> Albums </a>
     </nav>
-    <i class='bx bxs-user'></i>
 
 
 </header>

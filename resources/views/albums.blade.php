@@ -2,6 +2,6 @@
 
 @section("contenu")
 
-super page accueil
+super albums
 
 @endsection

@@ -2,6 +2,6 @@
 
 @section("contenu")
 
-super page accueil
+page photos
 
 @endsection
