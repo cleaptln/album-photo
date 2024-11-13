@@ -4,4 +4,8 @@
 
 page photos
 
+    @foreach($photos as $photo)
+       <img src="{{$photo->url}}">
+    @endforeach
+
 @endsection

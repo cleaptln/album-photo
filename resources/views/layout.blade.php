@@ -13,8 +13,8 @@
 
 <header>
     <nav>
-        <a> Photos </a>
-        <a> Albums </a>
+        <a href="{{route('photos')}}"> Photos </a>
+        <a href="{{route('albums')}}"> Albums </a>
     </nav>
 
 
