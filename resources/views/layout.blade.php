@@ -5,14 +5,26 @@
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Album Photo</title>
     <link rel="stylesheet" href='{{env("APP_URL")}}/css/style.css' />
-</head>
-<body>
-    <nav>
-    </nav>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
-    <main>
-    @yield('contenu')
-    </main>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a> Photos </a>
+        <a> Albums </a>
+    </nav>
+    <i class='bx bxs-user'></i>
+
+
+</header>
+
+
+<main>
+@yield('contenu')
+</main>
 
 </body>
 </html>
