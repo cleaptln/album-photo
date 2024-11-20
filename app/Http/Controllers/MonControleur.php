@@ -37,4 +37,19 @@ class MonControleur extends Controller
             ]);
     }
 
+    function tags($tag){
+        $tags = DB::select("SELECT * FROM tags where nom=?",[$tag]);
+        if(count($tags)==0)
+        abort(404);
+        $tag=$tags[0];
+
+        $photosTag = DB::select("SELECT photos.* FROM photos JOIN possede_tag ON photos.id = possede_tag.photo_id  WHERE tag_id=?", [$tag->id]);
+        return view('tag',
+        [
+            "tag" => $tag,
+            'photo'=>$photosTag
+        ]);
+
+    }
+
 }

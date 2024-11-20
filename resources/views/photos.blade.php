@@ -2,7 +2,7 @@
 
 @section("contenu")
 
-page photos
+page photos pas obligatoire
 
     @foreach($photos as $photo)
        <img src="{{$photo->url}}">
