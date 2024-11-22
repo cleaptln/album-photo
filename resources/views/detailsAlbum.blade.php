@@ -8,6 +8,10 @@ page details album
        <h2> {{$p->titre}}</h2>
        <img src="{{$p->url}}">
        
+       @foreach($tag[$p->id] as $t)
+       <a href="{{route('tag',['tag'=>$t->nom])}}">{{$t->nom}}</a>
+       @endforeach
+       
     @endforeach
 
 @endsection
