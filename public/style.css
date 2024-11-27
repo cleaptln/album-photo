@@ -6,7 +6,7 @@ body {
     background-color: #f2e9e4;
 }
 
-/* DÉBUT header*/
+/* DÉBUT header */
 
 header {
     display: flex;
@@ -31,6 +31,8 @@ nav a {
 nav a:hover {
     border-bottom: 1px white solid;
 }
+
+/* DÉBUT Logo */
 
 .text-container {
     position: relative;
@@ -76,4 +78,101 @@ nav a:hover {
     opacity: 1;
 }
 
-/* FIN header*/
+/* FIN Logo */
+
+/* FIN header */
+
+/* DÉBUT Album */
+
+.card {
+    background-color: #c9ada7;
+    padding: 10px 20px 20px 20px;
+    margin: 0px 10px 50px 10px;
+    border-radius: 15px;
+}
+
+.titre_album {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}
+
+.card h2 {
+    color: white;
+    font-size: 2rem;
+    margin: 10px;
+}
+
+.card img {
+    border-radius: 7px;
+    width: 100%;
+}
+
+/* DÉBUT Tri */
+
+/* Bouton rond */
+.circle-button {
+    position: relative;
+    width: 120px;
+    height: 40px;
+    background-color: #ffffff;
+    border: #22223b 2.5px solid;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #22223b;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Liste cachée par défaut */
+
+.tri {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 1em;
+}
+
+.circle-button.expanded {
+    width: 150px;
+    height: 100px;
+    border-radius: 15px;
+    background-color: #ffffff;
+}
+
+.radio-list {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+}
+
+.circle-button.expanded .radio-list {
+    display: flex;
+}
+
+.radio-item {
+    margin: 10px 0;
+}
+
+/* Par défaut, le + est visible */
+.plus-sign {
+    display: block;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Cache le + quand le menu est étendu */
+.circle-button.expanded .plus-sign {
+    opacity: 0;
+}
+
+/* FIN Tri */
+
