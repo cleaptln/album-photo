@@ -4,12 +4,14 @@
 
 page details album
 
+<form>
 <label for="trie"></label>
 <select name="trie" id="trie">
-    <option value="notes">Note</option>
-    <option value="titres">Titre</option>
+    <option value="note">Note</option>
+    <option value="titre">Titre</option>
 </select>
-
+<input type="submit" />
+</form>
 
 <h1> {{$album->titre}} </h1>
     @foreach($photo as $p)
