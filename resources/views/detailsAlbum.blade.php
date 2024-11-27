@@ -2,10 +2,13 @@
 
 @section("contenu")
 
+page details album
+
+<form>
 <label for="trie"></label>
 <select name="trie" id="trie">
-    <option value="notes">Note</option>
-    <option value="titres">Titre</option>
+    <option value="note">Note</option>
+    <option value="titre">Titre</option>
 </select>
 
     <!-- Début Bouton tri -->
@@ -22,6 +25,8 @@
         </div>
     </div>
 </div>
+<input type="submit" />
+</form>
 
     <script>
         const circleButton = document.getElementById("circleButton");
