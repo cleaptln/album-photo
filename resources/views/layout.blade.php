@@ -12,8 +12,15 @@
 <body>
 
 <header>
+
+<div class="text-container">
+    
+    <div class="text-initial"><a href="{{route('index')}}"><i class='bx bxs-photo-album' id="logo"></i></a></div>
+    
+    <div class="text-hover"><a href="{{route('index')}}"><i class='bx bx-photo-album' id="logo 2"></i></a></div>
+</div>
+
     <nav>
-        <a href="{{route('index')}}"> Accueil </a>
         <a href="{{route('photos')}}"> Photos </a>
         <a href="{{route('albums')}}"> Albums </a>
     </nav>
