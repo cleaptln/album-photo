@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Album Photo</title>
-    <link rel="stylesheet" href='{{env("APP_URL")}}/public/css/style.css' />
+    <link rel="stylesheet" href='{{env("APP_URL")}}/style.css' />
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
