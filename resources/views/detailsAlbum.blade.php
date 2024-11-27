@@ -6,7 +6,8 @@ page details album
 
 <label for="trie"></label>
 <select name="trie" id="trie">
-    <option value="notes">Notes</option>
+    <option value="notes">Note</option>
+    <option value="titres">Titre</option>
 </select>
 
 

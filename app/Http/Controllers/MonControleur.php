@@ -35,12 +35,14 @@ class MonControleur extends Controller
             foreach($photosAlbum as $p)
             $tagPhoto[$p->id] = DB::select("SELECT tags.* FROM tags JOIN possede_tag ON tags.id=possede_tag.tag_id WHERE photo_id=?", [$p->id]);
             
+            $photosTrie = DB::select("SELECT photos.* FROM photos JOIN albums ON album_id=albums.id WHERE albums.id=? ORDER BY photos.note DESC", [$id]);
 
             return view('detailsAlbum',
             [
                 "album" => $album,
                 'photo'=>$photosAlbum,
                 'tag'=>$tagPhoto,
+                'photosTrie'=>$photosTrie
             ]);
     }
 
