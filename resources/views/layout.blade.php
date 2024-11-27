@@ -13,6 +13,7 @@
 
 <header>
     <nav>
+        <a href="{{route('index')}}"> Accueil </a>
         <a href="{{route('photos')}}"> Photos </a>
         <a href="{{route('albums')}}"> Albums </a>
     </nav>
