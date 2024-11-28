@@ -2,11 +2,14 @@
 
 @section('contenu')
 
-<h1>#{{$tag->nom}}</h1>
-
+<h1 class="titre_album">#{{$tag->nom}}</h1>
+<div class="collection_card">
     @foreach($photo as $p)
-        <p>{{$p->titre}}</p>
-        <img src="{{$p->url}}"/>
+    <div class="card">
+        <h2> {{$p->titre}}</h2>
+        <img src="{{$p->url}}">
+        </div>
     @endforeach
-
+    
+</div>
 @endsection

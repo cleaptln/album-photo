@@ -2,8 +2,6 @@
 
 @section("contenu")
 
-page details album
-
 <form>
 <label for="trie"></label>
 <select name="trie" id="trie">
