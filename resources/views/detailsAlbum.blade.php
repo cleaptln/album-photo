@@ -17,10 +17,10 @@ page details album
 <span class="plus-sign">Tri <i class='bx bx-filter-alt'></i></span>
         <div class="radio-list" id="radioList">
             <label class="radio-item">
-                <input type="radio" name="option" value="1"> Titre
+                <input type="radio" name="option" value="note"> Titre
             </label>
             <label class="radio-item">
-                <input type="radio" name="option" value="2"> Note
+                <input type="radio" name="option" value="titre"> Note
             </label>
         </div>
     </div>

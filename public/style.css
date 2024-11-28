@@ -101,7 +101,7 @@ nav a:hover {
 .card h2 {
     color: white;
     font-size: 2rem;
-    margin: 10px;
+    margin: 10px 0 15px 0;
 }
 
 .card img {
