@@ -65,5 +65,29 @@ class MonControleur extends Controller
 
     }
  
+    function register(){
+        return view("auth/register");
+    }
+
+    function login(){
+        return view("auth/login");
+    }
+
+    function userAlbums($id) {
+        $user= Auth::id();
+
+        $albums = DB::select("SELECT * FROM albums where user_id=?", [$user]);
+        if(count($albums) ==0)
+        abort(404);
+        $album =$albums[0];
+
+
+        return view('UserAlbums',
+        [
+            "albums" => $albums,
+        ]);
+
+
+    }
 
 }

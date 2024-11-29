@@ -12,3 +12,12 @@ Route::get('/albums', [MonControleur::class, 'albums'])->name('albums');
 Route::get('/albums/{id}', [MonControleur::class, 'detailsAlbum'])->name('detailsAlbum')->where(['id' => '[0-9]+']);
 
 Route::get('/tags/{tag}', [MonControleur::class, 'tag'])->name('tag')->where(['tag' =>'[a-z]+']);
+
+
+Route::get('/login', [MonControleur::class, 'login'])->name('login');
+
+Route::get('/register', [MonControleur::class, 'register'])->name('register');
+
+
+Route::get("/private", [MonControleur::class, 'userAlbums'])->name('userAlbum')->middleware("auth");
+

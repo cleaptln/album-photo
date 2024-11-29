@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
+App\Providers\FortifyServiceProvider::class;
+
 return [
 
     /*
