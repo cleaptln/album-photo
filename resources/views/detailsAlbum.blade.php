@@ -2,28 +2,25 @@
 
 @section("contenu")
 
-<form>
-<label for="trie"></label>
-<select name="trie" id="trie">
-    <option value="note">Note</option>
-    <option value="titre">Titre</option>
-</select>
+
 
     <!-- Début Bouton tri -->
 <div class="tri">
 <div class="circle-button" id="circleButton">
 <span class="plus-sign">Tri <i class='bx bx-filter-alt'></i></span>
-        <div class="radio-list" id="radioList">
+        
+<form>
+    <div class="radio-list" id="radioList">
             <label class="radio-item">
-                <input type="radio" name="titre" value="titre"> Titre
+                <input type="radio" name="trie" value="titre"> Titre
             </label>
             <label class="radio-item">
-                <input type="radio" name="note" value="note"> Note
+                <input type="radio" name="trie" value="note"> Note
             </label>
+            <input type='submit' />
         </div>
     </div>
 </div>
-<input type="submit" />
 </form>
 
     <script>
