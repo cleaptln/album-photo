@@ -1,6 +1,7 @@
 <?php 
 namespace App\Http\Controllers;
 
+use App\Models\Photo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -31,10 +32,9 @@ class MonControleur extends Controller
             if($request->input('trie')==null)
             $photosAlbum = DB::select("SELECT photos.* FROM photos JOIN albums ON album_id=albums.id WHERE albums.id=?", [$id]);
             else {
-                
-                $ordre = "ORDER BY " . $request->input('trie');
-            $photosAlbum = DB::select("SELECT photos.* FROM photos JOIN albums ON album_id=albums.id WHERE albums.id=? $ordre", [$id]);
+            $photosAlbum = Photo::where('album_id', $id)->orderBy($request->input('trie'))->get();
             }
+
             $tagPhoto =  [];
             
             foreach($photosAlbum as $p)
@@ -87,6 +87,10 @@ class MonControleur extends Controller
         ]);
 
 
+    }
+
+    function creerAlbum() {
+        return view("creerAlbum");
     }
 
 }
