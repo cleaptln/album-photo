@@ -26,6 +26,7 @@
 </div>
 
     <nav>
+        
         <a href="{{route('photos')}}"> Photos </a>
         <a href="{{route('albums')}}"> Albums </a>
 
