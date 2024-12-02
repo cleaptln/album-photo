@@ -81,7 +81,6 @@ class MonControleur extends Controller
         abort(404);
         $album =$albums[0];
 
-
         return view('UserAlbums',
         [
             "albums" => $albums,

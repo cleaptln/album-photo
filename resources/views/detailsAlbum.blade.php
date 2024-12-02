@@ -15,10 +15,10 @@
 <span class="plus-sign">Tri <i class='bx bx-filter-alt'></i></span>
         <div class="radio-list" id="radioList">
             <label class="radio-item">
-                <input type="radio" name="option" value="note"> Titre
+                <input type="radio" name="titre" value="titre"> Titre
             </label>
             <label class="radio-item">
-                <input type="radio" name="option" value="titre"> Note
+                <input type="radio" name="note" value="note"> Note
             </label>
         </div>
     </div>
