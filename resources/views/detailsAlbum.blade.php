@@ -17,7 +17,7 @@
             <label class="radio-item">
                 <input type="radio" name="trie" value="note"> Note
             </label>
-            <input type='submit' />
+            <input type='submit' id="soumettre"/>
         </div>
     </div>
 </div>

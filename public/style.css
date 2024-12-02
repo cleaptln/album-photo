@@ -69,7 +69,7 @@ nav a {
     justify-content: center;
     align-items: center;
     color: rgb(255, 255, 255);
-    font-size: 2em;
+    font-size: 1.5em;
     
 }
 
@@ -204,8 +204,6 @@ nav a {
     transition: all 0.3s ease-in-out;
 }
 
-/* Liste cachée par défaut */
-
 .tri {
     display: flex;
     justify-content: flex-end;
@@ -214,9 +212,11 @@ nav a {
 
 .circle-button.expanded {
     width: 150px;
-    height: 100px;
+    height: 150px;
     border-radius: 15px;
     background-color: #ffffff;
+    justify-content: center;
+    align-items: center;
 }
 
 .radio-list {
@@ -229,14 +229,20 @@ nav a {
     flex-direction: column;
     align-items:center;
     justify-content: center;
+    margin: 20px 0 20px 0;
 }
 
 .circle-button.expanded .radio-list {
     display: flex;
+    top:40%;
 }
 
-.radio-item {
+.radio-item #soumettre {
     margin: 10px 0;
+}
+
+.radio-list input {
+    margin: 10px;
 }
 
 /* Par défaut, le + est visible */
