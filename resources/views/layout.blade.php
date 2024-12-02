@@ -33,8 +33,18 @@
 
 
             <div class="text-container2">
-                <div class="text-initial"><a href="{{route('register')}}"><i class='bx bx-user-circle' id="logo 2"></i></a></div>
-                <div class="text-hover"><a href="{{route('register')}}"><i class='bx bxs-user-circle' id="logo"></i></a></div>
+                @auth
+                Bonjour {{Auth::user()->name}}
+                <a href="{{route('logout')}}"
+                onclick="document.getElementById('logout').submit(); return false;">Logout</a> <!-- mettre un symbole logout-->
+                <form id="logout" action="{{route('logout')}}" method="post">
+                @csrf
+                </form>
+                <a href="{{route('userAlbums')}}">Mes albums</a>
+            @else
+            <div class="text-initial"><a href="{{route('register')}}"><i class='bx bx-user-circle' id="logo 2"></i></a></div>
+            <div class="text-hover"><a href="{{route('register')}}"><i class='bx bxs-user-circle' id="logo"></i></a></div>
+            @endauth
             </div>
     </nav>
 
