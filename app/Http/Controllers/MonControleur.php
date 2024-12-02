@@ -93,4 +93,20 @@ class MonControleur extends Controller
         return view("creerAlbum");
     }
 
+    function saveAlbum(Request $request) {
+        $request->validate([ //va verifier chaque regle suvante, si c pas le cas ca renvoie a la page d'avant
+            'titre'=>"required",
+            'creation'=>"required|numeric",
+        ]);
+
+         //ca marche : le film s'enregistre :
+
+         $albums= new Album();
+         $album->titre = $request->input(key:'titre');
+         $album->creation = $request->input(key:'creation');
+         $album->save();
+
+
+        return redirect(route("albums"));
+    }
 }
