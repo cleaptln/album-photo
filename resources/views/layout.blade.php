@@ -16,19 +16,21 @@
 <div class="text-container">
     
     <div class="text-initial">
-        <a href="{{route('index')}}"><i class='bx bx-photo-album' id="logo 2"></i><p>pictura</p></a>
+        <a href="{{route('index')}}"><i class='bx bx-photo-album' id="logo 2"></i><p><p>pictura</p></p></a>
     </div>
     
     <div class="text-hover">
-        <a href="{{route('index')}}"><i class='bx bxs-photo-album' id="logo"></i>pictura</a>
+        <a href="{{route('index')}}"><i class='bx bxs-photo-album' id="logo"></i><p>pictura</p></a>
     </div>
     
 </div>
 
     <nav>
-        
-        <a href="{{route('photos')}}"> Photos </a>
-        <a href="{{route('albums')}}"> Albums </a>
+
+
+        <a href="{{route('photos')}}" class="headerbottom"> Photos </a>
+        <a href="{{route('albums')}}" class="headerbottom"> Albums </a>
+
 
             <div class="text-container2">
                 <div class="text-initial"><a href="{{route('register')}}"><i class='bx bx-user-circle' id="logo 2"></i></a></div>

@@ -13,7 +13,7 @@ body {
 header {
     display: flex;
     background-color: #22223b;
-    padding :2rem ;   
+    padding :0.5rem ;   
 }
 
 nav {
@@ -30,7 +30,7 @@ nav a {
     margin: 0 0.5rem 0 0.5rem;
 }
 
-nav a:hover {
+.headerbottom:hover {
     border-bottom: 1px white solid;
 }
 
@@ -40,6 +40,7 @@ nav a:hover {
     position: relative;
     display: flex;
     align-items: center;
+    margin: 0 0 0 30px;
 }
 
 .text-container a {
@@ -51,11 +52,12 @@ nav a:hover {
 }
 
 .text-container i {
-    font-size: 5em;
+    font-size: 2em;
 }
 
 .text-container p {
     font-size: 1.2em;
+    font-family: "Borel";
 }
 
 .text-initial {
@@ -81,7 +83,7 @@ nav a:hover {
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 2em;
+    font-size: 1.5em;
     opacity: 0;
     font-weight: bold;
 }
@@ -92,6 +94,7 @@ nav a:hover {
 
 .text-container:hover .text-hover {
     opacity: 1;
+    
 }
 
 /* FIN Logo */
@@ -103,6 +106,32 @@ nav a:hover {
     display: flex;
     align-items: center;
     font-size: 2em;
+}
+
+.text-container2 a {
+    text-decoration: none;
+    color: white;
+    font-family: "Borel";
+    display: flex;
+    align-items: center;
+}
+
+.text-container2 i {
+    font-size: 1em;
+}
+
+.text-container2 p {
+    font-size: 1.2em;
+    font-family: "Borel";
+}
+
+.text-container2:hover .text-initial {
+    opacity: 0;
+}
+
+.text-container2:hover .text-hover {
+    opacity: 1;
+    
 }
 
 /* FIN header */
