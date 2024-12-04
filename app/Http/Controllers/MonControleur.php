@@ -74,14 +74,10 @@ class MonControleur extends Controller
     }
 
     function userAlbums($id) {
-        $user= Auth::id();
+        $albums = DB::select("SELECT * FROM albums where user_id=?", [$id]);
+      
 
-        $albums = DB::select("SELECT * FROM albums where user_id=?", [$user]);
-        if(count($albums) ==0)
-        abort(404);
-        $album =$albums[0];
-
-        return view('UserAlbums',
+        return view('userAlbums',
         [
             "albums" => $albums,
         ]);
@@ -97,6 +93,9 @@ class MonControleur extends Controller
         $request->validate([ //va verifier chaque regle suvante, si c pas le cas ca renvoie a la page d'avant
             'titre'=>"required",
             'creation'=>"required|numeric",
+            'url'=>"required|mimes:jpg,png,bmp",
+            'titrePhoto'=>"required",
+            'note'=>"required|numeric|min:1|max:5",
         ]);
 
          //ca marche : le film s'enregistre :
@@ -106,7 +105,12 @@ class MonControleur extends Controller
          $album->creation = $request->input(key:'creation');
          $album->save();
 
+        $photos=new Photo();
+        $photos->titre = $request->input(key:'titrePhoto');
+        $photos->url = $request->input(key:'url');
+        $photos->note = $request->input(key:'note');
+        $photos->save();
 
-        return redirect(route("albums"));
+        return redirect(route("userAlbums"));
     }
 }

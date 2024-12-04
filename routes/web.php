@@ -19,5 +19,5 @@ Route::get('/login', [MonControleur::class, 'login'])->name('login');
 Route::get('/register', [MonControleur::class, 'register'])->name('register');
 
 
-Route::get("/private", [MonControleur::class, 'userAlbums'])->name('userAlbums')->middleware("auth");
+Route::get("/mes-albums/{id}", [MonControleur::class, 'userAlbums'])->name('userAlbums')->where(['id' => '[0-9]+'])->middleware("auth");
 

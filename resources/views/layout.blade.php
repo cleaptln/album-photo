@@ -40,7 +40,7 @@
                 <form id="logout" action="{{route('logout')}}" method="post">
                 @csrf
                 </form>
-                <a href="{{route('userAlbums')}}">Mes albums</a>
+                <a href="{{route('userAlbums',['id'=>Auth::user()->id]) }}">Mes albums</a>
             @else
             <div class="text-initial"><a href="{{route('register')}}"><i class='bx bx-user-circle' id="logo 2"></i></a></div>
             <div class="text-hover"><a href="{{route('register')}}"><i class='bx bxs-user-circle' id="logo"></i></a></div>
