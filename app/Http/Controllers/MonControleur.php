@@ -97,6 +97,7 @@ class MonControleur extends Controller
         $request->validate([ //va verifier chaque regle suvante, si c pas le cas ca renvoie a la page d'avant
             'titre'=>"required",
             'creation'=>"required|numeric",
+            'url'=>"required|mimes:jpg,png,bmp",
         ]);
 
          //ca marche : le film s'enregistre :
@@ -105,6 +106,9 @@ class MonControleur extends Controller
          $album->titre = $request->input(key:'titre');
          $album->creation = $request->input(key:'creation');
          $album->save();
+
+        $photos=new Photo();
+        $photos->titre = $request->input('photos'), 
 
 
         return redirect(route("albums"));
