@@ -2,7 +2,7 @@
 
 @section("contenu")
 
-<h1 class="titre_album">Vos albums<h1>
+<h1 class="titre_album">Albums de la semaine<h1>
 
 
 <div class="wrap"> 
