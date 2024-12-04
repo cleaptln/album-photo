@@ -13,9 +13,9 @@
         
         <div id="photos-container">
             <div class="insertPhoto">
-                <input type="text" name="photos[0][titre]" placeholder="Titre de la photo" required>
-                <input type="file" name="photos[0][url]" placeholder="Image" required>
-                <input type="number" name="photos[0][note]" placeholder="Note (1-5)" min="1" max="5" required>
+                <input type="text" name="titrePhoto" placeholder="Titre de la photo" value="{{old('titrePhoto')}}" required>
+                <input type="url" name="url" placeholder="Image" required>
+                <input type="number" name="note" placeholder="Note (1-5)" min="1" max="5" required>
             </div>
         </div>
 
