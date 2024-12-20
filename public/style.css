@@ -36,6 +36,12 @@ nav a {
     border-bottom: 1px white solid;
 }
 
+.text-container2 a i {
+    text-decoration: none;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 /* DÉBUT Logo */
 
 .text-container {

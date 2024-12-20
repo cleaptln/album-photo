@@ -28,19 +28,17 @@
     <nav>
 
 
-        <a href="{{route('photos')}}" class="headerbottom"> Photos </a>
-        <a href="{{route('albums')}}" class="headerbottom"> Albums </a>
-
-
             <div class="text-container2">
-                @auth
+            @auth
+                <a href="{{route('userAlbums',['id'=>Auth::user()->id]) }}">Mes albums</a>
+                
                 Bonjour {{Auth::user()->name}}
                 <a href="{{route('logout')}}"
                 onclick="document.getElementById('logout').submit(); return false;">Logout</a> <!-- mettre un symbole logout-->
+                <i class='bx bx-log-out' id="logo 2"></i>
                 <form id="logout" action="{{route('logout')}}" method="post">
                 @csrf
                 </form>
-                <a href="{{route('userAlbums',['id'=>Auth::user()->id]) }}">Mes albums</a>
             @else
             <div class="text-initial"><a href="{{route('register')}}"><i class='bx bx-user-circle' id="logo 2"></i></a></div>
             <div class="text-hover"><a href="{{route('register')}}"><i class='bx bxs-user-circle' id="logo"></i></a></div>
