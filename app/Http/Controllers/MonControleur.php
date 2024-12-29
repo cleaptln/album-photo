@@ -137,7 +137,7 @@ class MonControleur extends Controller
         // Supprimer l'album
         $album->delete();
     
-        return redirect()->route('userAlbums')->with('success', 'Album et toutes ses photos ont été supprimés.');
+        return redirect()->route("userAlbums",['id'=>Auth::id])->with('success', 'Album et toutes ses photos ont été supprimés.');
     }
         
 
