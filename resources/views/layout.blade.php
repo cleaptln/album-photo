@@ -31,7 +31,7 @@
             <div class="text-container2">
             @auth
                 <a href="{{route('userAlbums',['id'=>Auth::user()->id]) }}">Mes albums</a>
-                
+                <a href="{{route('creerAlbum') }}">Créer +</a>
                 Bonjour {{Auth::user()->name}}
                 <a href="{{route('logout')}}"
                 onclick="document.getElementById('logout').submit(); return false;">Logout</a> <!-- mettre un symbole logout-->
@@ -53,6 +53,8 @@
 <main>
 @yield('contenu')
 </main>
+
+@yield('script')
 
 </body>
 </html>

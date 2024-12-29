@@ -18,6 +18,16 @@ Route::get('/login', [MonControleur::class, 'login'])->name('login');
 
 Route::get('/register', [MonControleur::class, 'register'])->name('register');
 
+Route::get('/creer-album', [MonControleur::class, 'creerAlbum'])->name('creerAlbum');
+Route::post('/saveAlbum', [MonControleur::class, 'saveAlbum'])->name('saveAlbum');
+
 
 Route::get("/mes-albums/{id}", [MonControleur::class, 'userAlbums'])->name('userAlbums')->where(['id' => '[0-9]+'])->middleware("auth");
+
+
+Route::delete('/photo/{photo}', [MonControleur::class, 'deletePhoto'])->name('deletePhoto');
+Route::delete('/album/{album}', [MonControleur::class, 'deleteAlbum'])->name('deleteAlbum');
+
+
+
 

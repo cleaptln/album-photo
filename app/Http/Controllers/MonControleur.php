@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 use App\Models\Photo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Album;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+
 
 class MonControleur extends Controller 
 
@@ -74,13 +78,13 @@ class MonControleur extends Controller
     }
 
     function userAlbums($id) {
-        $albums = DB::select("SELECT * FROM albums where user_id=?", [$id]);
-      
 
-        return view('userAlbums',
-        [
-            "albums" => $albums,
-        ]);
+        $albums = Album::where('user_id', Auth::id()) 
+        ->with(['photos' => function ($query) {
+            $query->take(4);  // 4 photos par album
+        }])->get();
+
+        return view('userAlbums', compact('albums'));
 
 
     }
@@ -92,25 +96,64 @@ class MonControleur extends Controller
     function saveAlbum(Request $request) {
         $request->validate([ //va verifier chaque regle suvante, si c pas le cas ca renvoie a la page d'avant
             'titre'=>"required",
-            'creation'=>"required|numeric",
-            'url'=>"required|mimes:jpg,png,bmp",
+            'creation'=>"required|date",
+            'img'=>"required|mimes:jpg,png,bmp|max:2048",
             'titrePhoto'=>"required",
             'note'=>"required|numeric|min:1|max:5",
         ]);
 
-         //ca marche : le film s'enregistre :
 
-         $albums= new Album();
+        $hashname=$request->file("img")->hashName();//on cree un nom pour l'image telechargee
+        $request->file("img")->storeAs("public/images",$hashname); 
+         //ca marche : l'album s'enregistre :
+
+         $album= new Album();
          $album->titre = $request->input(key:'titre');
          $album->creation = $request->input(key:'creation');
+         $album->user_id=Auth::id();
          $album->save();
-
         $photos=new Photo();
         $photos->titre = $request->input(key:'titrePhoto');
-        $photos->url = $request->input(key:'url');
+        $photos->image = env("APP_URL")."/storage/images/$hashname"; 
         $photos->note = $request->input(key:'note');
+        $photos->album_id = $album->id;
         $photos->save();
 
-        return redirect(route("userAlbums"));
+        return redirect(route("userAlbums", ['id' => $album->id]))->with('success', 'Album et photo enregistrés avec succès.');    
     }
+
+    public function deleteAlbum($id) {
+        $album = Album::findOrFail($id);
+    
+        // Supprimer les photos associées à l'album
+        foreach ($album->photos as $photo) {
+            // Supprimer le fichier image de la photo
+            if (Storage::exists('public/images/' . basename($photo->image))) {
+                Storage::delete('public/images/' . basename($photo->image));
+            }
+            $photo->delete();
+        }
+    
+        // Supprimer l'album
+        $album->delete();
+    
+        return redirect()->route('userAlbums')->with('success', 'Album et toutes ses photos ont été supprimés.');
+    }
+        
+
+    public function deletePhoto($id) {
+        $photo = Photo::findOrFail($id);
+
+        if (Storage::exists('public/images/' . basename($photo->image))) {
+            Storage::delete('public/images/' . basename($photo->image));
+        }
+    
+        $photo->delete();
+    
+        return redirect()->back()->with('success', 'Photo supprimée avec succès.');
+    }
+
+
+
+
 }

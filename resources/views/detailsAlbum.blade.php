@@ -23,37 +23,46 @@
 </div>
 </form>
 
-    <script>
-        const circleButton = document.getElementById("circleButton");
-        const radioList = document.getElementById("radioList");
 
-        // Activé l'expension au clique du bouton
-        circleButton.addEventListener("click", (event) => {
-            event.stopPropagation(); // Prevent event bubbling to body
-            circleButton.classList.toggle("expanded");
-        });
-
-        // Ferme la fenêtre si on clique en dehors
-        document.body.addEventListener("click", () => {
-            circleButton.classList.remove("expanded");
-        });
-    </script>
-
-    <!-- Fin Bouton tri -->
+<div class="titreAlbum">
+    <h1 class="titre_album"> {{$album->titre}} </h1>
+    <form action="{{ route('deleteAlbum', $album->id) }}" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet album et toutes ses photos ?')">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger">Supprimer l'album</button>
+    </form>
+</div>
 
 
-<h1 class="titre_album"> {{$album->titre}} </h1>
 <div class="collection_card"> 
+
+
     @foreach($photo as $p)
         <div class="card">
-        <h2> {{$p->titre}}</h2>
-        <img src="{{$p->url}}">
-       
-        @foreach($tag[$p->id] as $t)
-        <a class="tag" href="{{route('tag',['tag'=>$t->nom])}}">#{{$t->nom}}</a>
-        @endforeach
+            <h2> {{$p->titre}}</h2>
+            <img src="{{$p->image}}">
+        
+            @foreach($tag[$p->id] as $t)
+            <a class="tag" href="{{route('tag',['tag'=>$t->nom])}}">#{{$t->nom}}</a>
+            @endforeach
+            @auth
+                @if (auth()->id() === $album->user_id)
+                    <form action="{{ route('deletePhoto', $p->id) }}" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette photo ?')">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Supprimer</button>
+                    </form>
+                @endif
+            @endauth
         </div>
+
     @endforeach
+    
 </div>
+@endsection
+
+
+@section('script')
+<script src="{{env('APP_URL')}}/js/detailsAlbum.js"></script>
 @endsection
 
