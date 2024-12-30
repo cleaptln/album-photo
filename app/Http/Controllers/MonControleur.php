@@ -97,14 +97,11 @@ class MonControleur extends Controller
         $request->validate([ //va verifier chaque regle suvante, si c pas le cas ca renvoie a la page d'avant
             'titre'=>"required",
             'creation'=>"required|date",
-            'img'=>"required|mimes:jpg,png,bmp|max:2048",
-            'titrePhoto'=>"required",
-            'note'=>"required|numeric|min:1|max:5",
+            'img.*'=>"required|mimes:jpg,png,bmp|max:2048",
+            'titrePhoto.*'=>"required",
+            'note.*'=>"required|numeric|min:1|max:5",
         ]);
 
-
-        $hashname=$request->file("img")->hashName();//on cree un nom pour l'image telechargee
-        $request->file("img")->storeAs("public/images",$hashname); 
          //ca marche : l'album s'enregistre :
 
          $album= new Album();
@@ -112,13 +109,30 @@ class MonControleur extends Controller
          $album->creation = $request->input(key:'creation');
          $album->user_id=Auth::id();
          $album->save();
-        $photos=new Photo();
-        $photos->titre = $request->input(key:'titrePhoto');
-        $photos->image = env("APP_URL")."/storage/images/$hashname"; 
-        $photos->note = $request->input(key:'note');
-        $photos->album_id = $album->id;
-        $photos->save();
 
+        // Traitement et sauvegarde des photos
+        $titrePhotos = $request->input('titrePhoto');
+        $images = $request->file('img');
+        $notes = $request->input('note');
+
+        foreach ($titrePhotos as $index => $titrePhoto) {
+            if (isset($images[$index]) && isset($notes[$index])) {
+                $image = $images[$index];
+                // Générer un nom de fichier unique pour l'image
+                $hashname = $image->hashName();
+                $path = $image->storeAs('public/images', $hashname);
+    
+                // Création et sauvegarde de la photo
+                $photo = new Photo([
+                    'titre' => $titrePhoto,
+                    'image' => env('APP_URL') . "/storage/images/$hashname",
+                    'note' => $notes[$index],
+                ]);
+    
+                // Attacher la photo à l'album
+                $album->photos()->save($photo);
+            }
+        }
         return redirect(route("userAlbums", ['id' => $album->id]))->with('success', 'Album et photo enregistrés avec succès.');    
     }
 
@@ -137,7 +151,7 @@ class MonControleur extends Controller
         // Supprimer l'album
         $album->delete();
     
-        return redirect()->route("userAlbums",['id'=>Auth::id])->with('success', 'Album et toutes ses photos ont été supprimés.');
+        return redirect()->route("userAlbums",['id'=>Auth::id()])->with('success', 'Album et toutes ses photos ont été supprimés.');
     }
         
 

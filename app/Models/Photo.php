@@ -8,7 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Photo extends Model
 {
     use HasFactory;
+    
+    protected $fillable = ['titre', 'image', 'note', 'album_id'];
     public $timestamps = false;
+
 
     public function album() {
         return $this->belongsTo(Album::class, "album_id");
