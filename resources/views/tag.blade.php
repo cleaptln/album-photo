@@ -7,7 +7,7 @@
     @foreach($photo as $p)
     <div class="card">
         <h2> {{$p->titre}}</h2>
-        <img src="{{$p->url}}">
+        <img src="{{$p->image}}">
         </div>
     @endforeach
     

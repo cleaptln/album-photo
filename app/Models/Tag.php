@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
     use HasFactory;
+    
+    protected $fillable = ['nom'];
     public $timestamps = false;
 
     public function photos() {

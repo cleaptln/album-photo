@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Photo;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Album;
@@ -100,6 +101,7 @@ class MonControleur extends Controller
             'img.*'=>"required|mimes:jpg,png,bmp|max:2048",
             'titrePhoto.*'=>"required",
             'note.*'=>"required|numeric|min:1|max:5",
+            'tags.*.*' => 'nullable|string|max:255',
         ]);
 
          //ca marche : l'album s'enregistre :
@@ -114,6 +116,7 @@ class MonControleur extends Controller
         $titrePhotos = $request->input('titrePhoto');
         $images = $request->file('img');
         $notes = $request->input('note');
+        $tagsInput = $request->input('tags');
 
         foreach ($titrePhotos as $index => $titrePhoto) {
             if (isset($images[$index]) && isset($notes[$index])) {
@@ -131,6 +134,13 @@ class MonControleur extends Controller
     
                 // Attacher la photo à l'album
                 $album->photos()->save($photo);
+            }
+            // Gestion des tags pour cette photo
+            if (isset($tagsInput[$index])) {
+                foreach ($tagsInput[$index] as $tagName) {
+                    $tag = Tag::firstOrCreate(['nom' => $tagName]);
+                    $photo->tags()->attach($tag);
+                }
             }
         }
         return redirect(route("userAlbums", ['id' => $album->id]))->with('success', 'Album et photo enregistrés avec succès.');    
