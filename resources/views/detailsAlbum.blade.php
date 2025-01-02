@@ -26,11 +26,17 @@
 
 <div class="titreAlbum">
     <h1 class="titre_album"> {{$album->titre}} </h1>
-    <form action="{{ route('deleteAlbum', $album->id) }}" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet album et toutes ses photos ?')">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn-danger">Supprimer l'album</button>
-    </form>
+    
+    @auth
+        @if (auth()->id() === $album->user_id)
+            <form action="{{ route('deleteAlbum', $album->id) }}" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet album et toutes ses photos ?')">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Supprimer l'album</button>
+            </form>
+        @endif
+    @endauth
+
 </div>
 
 
@@ -55,8 +61,22 @@
                 @endif
             @endauth
         </div>
-
     @endforeach
+    @auth
+        @if (auth()->id() === $album->user_id)
+            <form action="{{ route('saveAlbum') }}" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette photo ?')">
+            @csrf
+                <div id="photos-container"></div>
+
+                <!-- Bouton pour ajouter des champs -->
+                <button type="button" id="add-photo">Ajouter une photo</button> 
+                <br />
+
+
+                <input type="submit" value="Valider">
+            </form>
+        @endif
+    @endauth
 
 </div>
 @endsection
@@ -64,6 +84,7 @@
 
 @section('script')
 <script src="{{env('APP_URL')}}/js/detailsAlbum.js"></script>
+<script src="{{env('APP_URL')}}/js/creerAlbum.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 @endsection
 

@@ -30,3 +30,4 @@ Route::delete('/album/{album}', [MonControleur::class, 'deleteAlbum'])->name('de
 
 Route::get('/photos', [MonControleur::class, 'photos'])->name('photos');
 Route::get('/photos/search', [MonControleur::class, 'search'])->name('search');
+
