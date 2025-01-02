@@ -16,7 +16,7 @@
 <div class="text-container">
     
     <div class="text-initial">
-        <a href="{{route('index')}}"><i class='bx bx-photo-album' id="logo 2"></i><p><p>pictura</p></p></a>
+        <a href="{{route('index')}}"><i class='bx bx-photo-album' id="logoIni"></i><p><p>pictura</p></p></a>
     </div>
     
     <div class="text-hover">

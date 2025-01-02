@@ -15,7 +15,12 @@ class MonControleur extends Controller
 {
 
     function index() {
-        return view('index');
+        $photos = Photo::orderBy('note', 'desc')->take(3)->get();
+        $albums = Album::orderBy('creation','desc')->take(4)->get();
+        return view('index',[
+            "photos"=>$photos,
+            "albums"=>$albums,
+        ]);
     }
 
     function albums(){
