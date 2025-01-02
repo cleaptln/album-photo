@@ -23,6 +23,8 @@
 </div>
 </form>
 
+    <!-- Fin Bouton tri -->
+
 
 <div class="titreAlbum">
     <h1 class="titre_album"> {{$album->titre}} </h1>

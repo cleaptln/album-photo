@@ -4,13 +4,20 @@
 
 <input type="text" id="search" placeholder="Rechercher par titre">
 <div id="photosSearch">
-    @foreach ($photos as $photo)
+    
+<h1 class="titre_album"> Les dernières photos </h1>
+
+<div class="collection_card"> 
+@foreach ($photos as $photo)
+    <div class="card">
         <div class="photo-item">
-            <h3>{{ $photo->titre }}</h3>
+            <h2>{{ $photo->titre }}</h3>
             <img src="{{ $photo->image }}" alt="{{ $photo->titre }}">
-            <a href="{{ route('detailsAlbum', ['id' => $photo->album_id]) }}">Voir l'album</a>
+            <a class="voiralbum" href="{{ route('detailsAlbum', ['id' => $photo->album_id]) }}">Voir l'album</a>
+        </div>
         </div>
     @endforeach
+</div>
 </div>
 
 @endsection

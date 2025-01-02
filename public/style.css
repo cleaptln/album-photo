@@ -454,3 +454,250 @@ input[type="checkbox"]{
 }
 
 /* FIN Login */
+
+/* DÉBUT Index*/
+
+.titreindex {
+    display: flex;
+    flex-direction: column;
+    font-size: 3em;
+    margin: 2.4em 2em 0 2em;
+}
+
+.titrelogo {
+    font-family: "Borel";
+    font-size: 2.2em;
+    color: #22223b;
+    margin: 0;
+}
+
+.presentation {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 5em 5em;
+    font-size: 1.3em;
+  }
+
+.grid1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    justify-content: space-around;
+    margin: 1em;
+  }
+
+  .grid1-one {
+
+    margin: 0 5px 0 0;
+    background-color: aqua;
+    height: 17em;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .grid1-two {
+    margin: 0 0 0 5px;
+    background-color: rgb(106, 255, 0);
+    height: 17em;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .grid1 a{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 3em;
+    text-decoration: none;
+    color: #22223b;
+    max-width: 9em;
+  }
+
+  /*DÉBUT Index*/
+
+  /*DÉBUT Photo*/
+
+  .voiralbum {
+    color: white;
+    border-bottom: 1px solid #ffffff;
+    text-decoration: none;
+  }
+
+  .voiralbum:hover {
+    color: white;
+    border-bottom: 1px solid #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  #search {
+    padding: 1em;
+    border-radius: 100px;
+    margin: 2em;
+    border: 2px white solid;
+    width: 20em;
+  }
+
+  #search:focus {
+    padding: 1em;
+    border-radius: 100px;
+    margin: 2em;
+    border: 2px #22223b solid;
+    width: 20em;
+  }
+
+   /*FIN Photo*/
+
+   /*DÉBUT CreerAlbum*/
+
+   .CreerForm {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+   }
+
+   #CreerTitre {
+    padding: 1em;
+    border-radius: 100px;
+    margin: 2em;
+    width: 20em;
+    height: 2em;
+    border: white 2px solid;
+   }
+
+   #CreerTitre:focus {
+    border: #22223b 2px solid;
+   }
+
+   #CreerDate {
+    padding: 1em;
+    border-radius: 100px;
+    margin: 2em;
+    width: 20em;
+    height: 2em;
+    border: white 2px solid;
+   }
+
+   #CreerDate:focus {
+    border: #22223b 2px solid;
+   }
+
+   .CreerForm input::placeholder {
+    font-size: 1.3em;
+    color: #grey;
+   }
+
+   .CreerForm input::date {
+    font-size: 1.3em;
+   }
+
+   #add-photo {
+    padding: 1em;
+    border-radius: 100px;
+    background-color: #22223b;
+    border: 2px white solid;
+    color: white;
+    margin: 2em;
+    width: 12em;
+   }
+
+   #add-photo:hover {
+    background-color: white;
+    border: 2px #22223b solid;
+    color: #22223b;
+   }
+
+   input[type=submit] {
+    padding: 1em;
+    border-radius: 100px;
+    background-color: #22223b;
+    border: 2px white solid;
+    color: white;
+    margin: 2em;
+    width: 12em;
+   }
+
+   input[type=submit]:hover {
+    background-color: white;
+    border: 2px #22223b solid;
+    color: #22223b;
+   }
+
+   .insertPhoto {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+   }
+
+  .fileselection {
+    background-color: white;
+    border-radius: 100px;
+    display: flex;
+    border: 2px white solid;
+    justify-content: space-between;
+    width: 8em;
+    margin: 1em;
+  }
+
+   input[name^="titrePhoto"] {
+    padding: 1em;
+    border-radius: 100px;
+    width: 15em;
+    height: 1em;
+    border: white 2px solid;
+  }
+
+  input[name^="img"] {
+    display: none;
+  }
+
+  .custom-file-btn {
+    display: flex;
+    text-align: end;
+    align-items: center;
+    margin: 5px;
+    background-color: #22223b;
+    color: white;
+    padding: 10px;
+    border-radius: 100px;
+    cursor: pointer;
+    font-size: 0.3em;
+    height: 2em;
+    margin-left: auto;
+  }
+
+  .tag-input {
+    padding: 1em;
+    border-radius: 100px;
+    margin: 2em;
+    width: 20em;
+    height: 2em;
+    border: white 2px solid;
+   }
+
+   input[name^="note"] {
+    padding: 1em;
+    border-radius: 100px;
+    margin: 2em;
+    width: 20em;
+    height: 2em;
+    border: white 2px solid;
+   }
+   
+   .remove-photo {
+    background-color: #ffffff;
+    text-decoration: none;
+    padding: 1em;
+    border-radius: 100px;
+    margin: 2em;
+    width: 20em;
+    height: 2em;
+    border: white 2px solid;
+   }

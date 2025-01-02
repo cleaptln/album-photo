@@ -3,12 +3,15 @@
 @section("contenu")
 @include("errors")
 
+<h1 class="titre_album">Créer un album<h1>
 
+
+<div class="CreerForm">
     <form method="post" action="{{route('saveAlbum')}}" enctype="multipart/form-data">
         @csrf
-        <input type="text" name="titre" value="{{old('titre')}}" placeholder="Titre de l'album" required>
+        <input type="text" name="titre" value="{{old('titre')}}" id="CreerTitre" placeholder="Titre de l'album" required>
         <br />
-        <input type="date" name="creation" value="{{ old('creation') }}" placeholder="Date de Création"  required>
+        <input type="date" name="creation" value="{{ old('creation') }}" id="CreerDate" placeholder="Date de Création"  required>
         <br />
         
         <!-- On ajoute une photo -->
@@ -21,7 +24,8 @@
 
 
         <input type="submit" value="Valider">
-</form>
+    </form>
+</div>
     @endsection
 
     @section('script')

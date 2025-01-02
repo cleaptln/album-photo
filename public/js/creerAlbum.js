@@ -7,8 +7,11 @@ document.getElementById('add-photo').addEventListener('click', function() {
 
     // Ajouter les champs à la nouvelle div
     newPhotoDiv.innerHTML = `
+    <div class="fileselection">
         <input type="text" name="titrePhoto[${photoIndex}]" placeholder="Titre de la photo" required>
-        <input type="file" name="img[${photoIndex}]" placeholder="Image" required>
+<input type="file" name="img[${photoIndex}]" id="fileInput[${photoIndex}]" placeholder="Image" required>
+<label for="fileInput[${photoIndex}]" class="custom-file-btn" id="fileLabel[${photoIndex}]">Choisir</label>
+    </div>
         <div class="tag-input-container">
             <input type="text" class="tag-input" placeholder="#vacances #autre #...">
             <div class="tag-container"></div>
@@ -19,6 +22,15 @@ document.getElementById('add-photo').addEventListener('click', function() {
 
     // Ajouter la nouvelle div au conteneur de photos
     document.getElementById('photos-container').appendChild(newPhotoDiv);
+
+        // Mettre à jour le texte du label
+        document.querySelectorAll('input[type="file"]').forEach(input => {
+            input.addEventListener('change', function() {
+              const fileLabel = document.querySelector(`label[for="${this.id}"]`); // Récupérer le label correspondant
+              const fileName = this.files[0] ? this.files[0].name : "Choisir"; // Si un fichier est sélectionné, récupérer son nom
+              fileLabel.textContent = fileName;
+            });
+          });
 
     // Ajouter un gestionnaire d'événements au bouton de suppression de cette nouvelle div
     newPhotoDiv.querySelector('.remove-photo').addEventListener('click', function() {
