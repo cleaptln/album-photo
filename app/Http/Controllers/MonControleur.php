@@ -18,11 +18,6 @@ class MonControleur extends Controller
         return view('index');
     }
 
-    function photos(){
-        $photos = DB::select("SELECT * FROM photos");
-        return view('photos',["photos" => $photos]);
-    }
-
     function albums(){
         $albums = DB::select("SELECT * FROM albums");
         return view('albums', ["albums" => $albums]);
@@ -177,7 +172,19 @@ class MonControleur extends Controller
         return redirect()->back()->with('success', 'Photo supprimée avec succès.');
     }
 
+        public function photos()
+        {
+            $photos = Photo::all();
+            return view('photos', compact('photos'));
+        }
+    
+        public function search(Request $request)
+        {
+            $query = $request->get('q');
+            $photos = Photo::where('titre', 'LIKE', "%{$query}%")->get();
+            return response()->json($photos);
+        }
 
 
-
-}
+        
+    }

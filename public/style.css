@@ -143,7 +143,31 @@ nav a {
     
 }
 
+#search-results {
+    display: block;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+}
+#search-results li {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+#search-results li:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+
 /* FIN header */
+
+
+
 
 /* DÉBUT detailsAlbum */
 

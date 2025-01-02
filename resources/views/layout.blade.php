@@ -32,6 +32,11 @@
             @auth
                 <a href="{{route('userAlbums',['id'=>Auth::user()->id]) }}">Mes albums</a>
                 <a href="{{route('creerAlbum') }}">Créer +</a>
+            @endauth
+            <div class="search">
+                <a href="{{route('photos') }}">Rechercher</a>
+            </div>            
+            @auth
                 Bonjour {{Auth::user()->name}}
                 <a href="{{route('logout')}}"
                 onclick="document.getElementById('logout').submit(); return false;">Logout</a> <!-- mettre un symbole logout-->
@@ -54,7 +59,10 @@
 @yield('contenu')
 </main>
 
-@yield('script')
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    @yield('script')
+
 
 </body>
 </html>

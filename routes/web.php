@@ -28,6 +28,5 @@ Route::get("/mes-albums/{id}", [MonControleur::class, 'userAlbums'])->name('user
 Route::delete('/photo/{photo}', [MonControleur::class, 'deletePhoto'])->name('deletePhoto');
 Route::delete('/album/{album}', [MonControleur::class, 'deleteAlbum'])->name('deleteAlbum');
 
-
-
-
+Route::get('/photos', [MonControleur::class, 'photos'])->name('photos');
+Route::get('/photos/search', [MonControleur::class, 'search'])->name('search');
