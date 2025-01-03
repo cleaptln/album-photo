@@ -46,7 +46,6 @@ nav a {
 
 #logo, #logo2 {
     font-family:"Borel";
-
 }
 
 /* DÉBUT Logo */
@@ -347,6 +346,7 @@ nav a {
     align-items: center;
     height: 25em;
     flex-direction: column;
+    text-align: center;
 }
 
 #titre_register {
@@ -375,21 +375,24 @@ nav a {
 }
 
 .register input[type="submit"] {
-    display: flex;
-    text-align: center;
-    width: 70%;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
+    padding: 1em;
+    border-radius: 100px;
+    background-color: #22223b;
+    border: 2px white solid;
+    color: white;
+    margin: 2em;
+
 }
 
 .register input[type="submit"]:hover {
-    background-color: #c9ada7;
-    color: white;
+    background-color: white;
+    color: #22223b;
+    border: 2px #22223b solid;
 }
 
 .register a {
     text-decoration: none;
+
 }
 
 .register a:hover {
@@ -417,6 +420,7 @@ nav a {
     align-items: center;
     height: 25em;
     flex-direction: column;
+    text-align: center;
 }
 
 #titre_login {
@@ -431,17 +435,18 @@ nav a {
 }
 
 .login input[type="submit"] {
-    display: flex;
-    text-align: center;
-    width: 70%;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
+    padding: 1em;
+    border-radius: 100px;
+    background-color: #22223b;
+    border: 2px white solid;
+    color: white;
+    margin: 2em;
 }
 
 .login input[type="submit"]:hover {
-    background-color: #c9ada7;
-    color: white;
+    background-color: white;
+    color: #22223b;
+    border: 2px #22223b solid;
 }
 
 .remember {
@@ -657,6 +662,8 @@ input[type="checkbox"]{
     align-items: center;
     width: 9em;
     margin: 1em;
+    font-weight: 300;
+
   }
 
    input[name^="titrePhoto"] {
