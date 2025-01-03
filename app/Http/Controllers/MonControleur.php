@@ -191,4 +191,53 @@ class MonControleur extends Controller
         }
 
 
+        public function updateAlbum(Request $request, $albumId) {
+            $request->validate([
+                'img.*'=>"required|mimes:jpg,png,bmp|max:2048",
+                'titrePhoto.*'=>"required",
+                'note.*'=>"required|numeric|min:1|max:5",
+                'tags.*.*' => 'nullable|string|max:255',
+            ]);
+        
+            // Récupérer l'album existant
+            $album = Album::findOrFail($albumId);
+        
+            // Traitement et sauvegarde des nouvelles photos
+            $titrePhotos = $request->input('titrePhoto');
+            $images = $request->file('img');
+            $notes = $request->input('note');
+            $tagsInput = $request->input('tags');
+        
+            foreach ($titrePhotos as $index => $titrePhoto) {
+                if (isset($images[$index]) && isset($notes[$index])) {
+                    $image = $images[$index];
+                    // Générer un nom de fichier unique pour l'image
+                    $hashname = $image->hashName();
+                    $path = $image->storeAs('public/images', $hashname);
+        
+                    // Création et sauvegarde de la photo
+                    $photo = new Photo([
+                        'titre' => $titrePhoto,
+                        'image' => env('APP_URL') . "/storage/images/$hashname",
+                        'note' => $notes[$index],
+                    ]);
+        
+                    // Attacher la photo à l'album
+                    $album->photos()->save($photo);
+                }
+        
+                // Gestion des tags pour cette photo
+                if (isset($tagsInput[$index])) {
+                    foreach ($tagsInput[$index] as $tagName) {
+                        $tag = Tag::firstOrCreate(['nom' => $tagName]);
+                        $photo->tags()->attach($tag);
+                    }
+                }
+            }
+        
+            return redirect(route("userAlbums", ['id' => $album->id]))->with('success', 'Nouvelles photos ajoutées avec succès à l\'album.');
+        }
+
+
+
 }

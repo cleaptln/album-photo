@@ -66,7 +66,7 @@
     @endforeach
     @auth
         @if (auth()->id() === $album->user_id)
-            <form action="{{ route('saveAlbum') }}" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette photo ?')">
+            <form action="{{ route('updateAlbum', ['id' => $album->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
                 <div id="photos-container"></div>
 
@@ -86,7 +86,6 @@
 
 @section('script')
 <script src="{{env('APP_URL')}}/js/detailsAlbum.js"></script>
-<script src="{{env('APP_URL')}}/js/creerAlbum.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 @endsection
 
