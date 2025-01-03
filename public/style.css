@@ -491,8 +491,8 @@ input[type="checkbox"]{
 
 .grid1 {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
+    grid-template-columns: repeat(1, 2fr);
+    grid-gap: 1.3em;
     grid-auto-rows: minmax(100px, auto);
     justify-content: space-around;
     margin: 1em;
@@ -502,7 +502,7 @@ input[type="checkbox"]{
 
     margin: 0 5px 0 0;
     background-color: aqua;
-    height: 17em;
+    height: 25em;
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -512,7 +512,7 @@ input[type="checkbox"]{
   .grid1-two {
     margin: 0 0 0 5px;
     background-color: rgb(106, 255, 0);
-    height: 17em;
+    height: 25em;
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -526,7 +526,12 @@ input[type="checkbox"]{
     font-size: 3em;
     text-decoration: none;
     color: #22223b;
-    max-width: 9em;
+    max-width: 2em;
+  }
+
+  .grid1 img {
+    width: 100%;
+    height: 3em;
   }
 
   /*DÉBUT Index*/
