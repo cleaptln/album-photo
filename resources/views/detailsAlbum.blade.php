@@ -50,13 +50,14 @@
             <h2> {{$p->titre}}</h2>
             <img src="{{$p->image}}">
             <div>
-            <p>Note :</p>
+            <p>Note : 
                 @for ($i = 1; $i <= $p->note; $i++)
                         <i class='bx bxs-star' ></i>
                 @endfor
                 @for ($i = $p->note + 1; $i <= 5; $i++)
                 <i class='bx bx-star'></i>
                 @endfor
+            </p>
             </div>
             @foreach($tag[$p->id] as $t)
             <a class="tag" href="{{route('tag',['tag'=>$t->nom])}}">#{{$t->nom}}</a>
@@ -74,7 +75,7 @@
     @endforeach
     @auth
         @if (auth()->id() === $album->user_id)
-            <form action="{{ route('updateAlbum', ['id' => $album->id]) }}" method="POST" enctype="multipart/form-data">
+            <form class="rajouterPhoto" action="{{ route('updateAlbum', ['id' => $album->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
                 <div id="photos-container"></div>
 

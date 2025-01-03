@@ -36,8 +36,15 @@ class MonControleur extends Controller
             abort(404);
             $album =$albums[0];
 
+            $tri = $request->input('trie');
+
             if($request->input('trie')==null)
             $photosAlbum = DB::select("SELECT photos.* FROM photos JOIN albums ON album_id=albums.id WHERE albums.id=?", [$id]);
+            else if ($tri === 'note')
+                    // Trier les photos par note de manière décroissante
+                    $photosAlbum = Photo::where('album_id', $id)
+                        ->orderBy('note', 'desc')
+                        ->get();
             else {
             $photosAlbum = Photo::where('album_id', $id)->orderBy($request->input('trie'))->get();
             }
