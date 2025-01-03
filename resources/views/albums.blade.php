@@ -2,8 +2,27 @@
 
 @section("contenu")
 
-<h1 class="titre_album">Liste des albums<h1>
+    <!-- Début Bouton tri -->
+    <div class="tri">
+<div class="circle-button" id="circleButton">
+<span class="plus-sign">Tri <i class='bx bx-filter-alt'></i></span>
+        
+<form>
+    <div class="radio-list" id="radioList">
+            <label class="radio-item">
+                <input type="radio" name="trie" value="titre"> Titre
+            </label>
+            <label class="radio-item">
+                <input type="radio" name="trie" value="creation"> Date
+            </label>
+            <input type='submit' id="soumettre"/>
+        </div>
+    </div>
+</div>
+</form>
 
+
+<h1 class="titre_album">Liste des albums<h1>
 
 <div class="wrap"> 
 
@@ -24,4 +43,9 @@
 </div>
 @endforeach
 </div>
+@endsection
+
+
+@section('script')
+<script src="{{env('APP_URL')}}/js/albums.js"></script>
 @endsection

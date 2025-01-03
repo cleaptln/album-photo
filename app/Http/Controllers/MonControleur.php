@@ -23,10 +23,18 @@ class MonControleur extends Controller
         ]);
     }
 
-    function albums(){
+    function albums(Request $request){
         $albumsShow = Album::with('photos')->get();
+        $albums=null;
+        $tri = $request->input('trie');
+        if ($tri === null) {
+            $albums = Album::all();
+        } else if ($tri === 'creation')
+                $albums = Album::orderBy('creation', 'desc')->get();
+        
         return view('albums', [
             "albumsShow" => $albumsShow,
+            "albums"=>$albums
         ]);
     }
 
