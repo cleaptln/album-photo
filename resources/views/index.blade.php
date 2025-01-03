@@ -10,16 +10,22 @@
 
 <div class="grid1">
     <div class="grid1-one">
-        <a href="{{route('photos')}}" class="headerbottom"> Top 3 des photos les mieux notées </a>
+        <h3 class="headerbottom"> Top 3 des photos les mieux notées </h3>
+        <div class="images">
         @foreach ($photos as $photo)
             <img src="{{$photo->image}}"/>
         @endforeach
+        </div>
     </div>
+    <a href="{{route('search')}}">Rechercher des photos</a>
     <div class="grid1-two">
-        <a href="{{route('albums')}}" class="headerbottom"> Les derniers albums </a>
+        <h3 class="headerbottom"> Les derniers albums </h3>
         @foreach ($albums as $album)
             <p>{{$album->titre}}</p>
         @endforeach
     </div>
+    <a href="{{route('albums')}}">Voir tous les albums</a>
 </div>
+
+
 @endsection

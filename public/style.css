@@ -490,21 +490,17 @@ input[type="checkbox"]{
   }
 
 .grid1 {
-    display: grid;
-    grid-template-columns: repeat(1, 2fr);
-    grid-gap: 1.3em;
-    grid-auto-rows: minmax(100px, auto);
-    justify-content: space-around;
-    margin: 1em;
+    display: flex;
+    flex-direction: column;
   }
 
   .grid1-one {
-
     margin: 0 5px 0 0;
     background-color: aqua;
     height: 25em;
     border-radius: 15px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
@@ -515,23 +511,32 @@ input[type="checkbox"]{
     height: 25em;
     border-radius: 15px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
+  .grid1 .images {
+    display: flex;
+    width: 80%;
+    height: 100%;
+  }
+
   .grid1 a{
     display: flex;
+    margin: 0 auto;
     justify-content: center;
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
     text-decoration: none;
-    color: #22223b;
-    max-width: 2em;
+    color:#ddd;
+    background-color: #22223b;
+    border-radius: 20px;
+    padding: 1rem;
   }
 
   .grid1 img {
-    width: 100%;
-    height: 3em;
+    width: 100%;;
   }
 
   /*DÉBUT Index*/
@@ -755,36 +760,47 @@ input[type="checkbox"]{
     grid-template-columns: repeat(2, 1fr); /* 2 colonnes de largeur égale */
     gap: 10px; /* Espace entre les photos */
     padding: 10px; /* Ajout de padding autour du conteneur */
-    border: 1px solid #ccc; /* Bordure autour du conteneur */
     border-radius: 8px; /* Coins arrondis */
-    max-width: 800px; /* Largeur maximale du conteneur */
+    max-width: 10rem; /* Largeur maximale du conteneur */
     margin: 0 auto; /* Centrage du conteneur */
+    aspect-ratio: 1/1;
+    transition: transform 0.3s ease; /* Transition pour l'effet de survol */
+    background-color:#fff;
 }
 
 .photoGrid {
     overflow: hidden; /* Cache le débordement des photos */
     border: 1px solid #ddd; /* Bordure autour des photos */
     border-radius: 4px; /* Coins arrondis des photos */
-    transition: transform 0.3s ease; /* Transition pour l'effet de survol */
 }
 
 .photoGrid img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
-    aspect-ratio: 1/1;
     object-fit: cover;
 }
 
 .boiteAlbum {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width:20%;
     align-items: center;
     justify-content: center;
+    background-color: #22223b;
+    border-radius: 30px;
+    padding: 2rem;
+    margin: 2rem auto;
 }
 
-.photoGrid:hover {
+.boiteAlbum a {
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.albumGrid:hover {
     transform: scale(1.05); /* Agrandissement léger lors du survol */
 }
 

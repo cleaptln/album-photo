@@ -83,7 +83,6 @@ function addTag(tag, photoIndex) {
     tagContainer.appendChild(hiddenInput);
 }
 
-
 document.addEventListener('DOMContentLoaded', function () {
     const addPhotoButton = document.getElementById('add-photo');
     const submitContainer = document.getElementById('submit-container');

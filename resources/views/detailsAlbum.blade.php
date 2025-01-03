@@ -49,7 +49,15 @@
         <div class="card">
             <h2> {{$p->titre}}</h2>
             <img src="{{$p->image}}">
-        
+            <div>
+            <p>Note :</p>
+                @for ($i = 1; $i <= $p->note; $i++)
+                        <i class='bx bxs-star' ></i>
+                @endfor
+                @for ($i = $p->note + 1; $i <= 5; $i++)
+                <i class='bx bx-star'></i>
+                @endfor
+            </div>
             @foreach($tag[$p->id] as $t)
             <a class="tag" href="{{route('tag',['tag'=>$t->nom])}}">#{{$t->nom}}</a>
             @endforeach

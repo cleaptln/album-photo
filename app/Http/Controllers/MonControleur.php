@@ -24,8 +24,10 @@ class MonControleur extends Controller
     }
 
     function albums(){
-        $albums = DB::select("SELECT * FROM albums");
-        return view('albums', ["albums" => $albums]);
+        $albumsShow = Album::with('photos')->get();
+        return view('albums', [
+            "albumsShow" => $albumsShow,
+        ]);
     }
 
     function detailsAlbum(Request $request, $id) {
