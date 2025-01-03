@@ -597,7 +597,7 @@ input[type="checkbox"]{
 
    .CreerForm input::placeholder {
     font-size: 1.3em;
-    color: #grey;
+    color: grey;
    }
 
    .CreerForm input::date {
@@ -640,6 +640,11 @@ input[type="checkbox"]{
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
+    background-color: #22223b;
+    border-radius: 30px;
+    margin-top: 2rem;
+
    }
 
   .fileselection {
@@ -648,6 +653,8 @@ input[type="checkbox"]{
     display: flex;
     border: 2px white solid;
     justify-content: space-between;
+    display: flex;
+    align-items: center;
     width: 8em;
     margin: 1em;
   }
@@ -674,9 +681,14 @@ input[type="checkbox"]{
     padding: 10px;
     border-radius: 100px;
     cursor: pointer;
-    font-size: 0.3em;
-    height: 2em;
+    font-size: 1em;
     margin-left: auto;
+  }
+
+  .custom-file-btn:hover{
+    background-color: #ffffff;
+    color:#22223b;
+    border:2px solid #22223b;
   }
 
   .tag-input {
@@ -698,12 +710,17 @@ input[type="checkbox"]{
    }
    
    .remove-photo {
-    background-color: #ffffff;
     text-decoration: none;
-    padding: 1em;
+    padding: 0.5em;
     border-radius: 100px;
     margin: 2em;
-    width: 20em;
-    height: 2em;
-    border: white 2px solid;
+    width: fit-content;
+    font-size: 0.7em;
+    border:1px solid #22223b;
+    color: #22223b;
+   }
+
+   .remove-photo:hover {
+    background-color:rgb(188, 5, 5);
+    color: #f0f0f0;
    }

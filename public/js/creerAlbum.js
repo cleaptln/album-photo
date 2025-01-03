@@ -9,15 +9,15 @@ document.getElementById('add-photo').addEventListener('click', function() {
     newPhotoDiv.innerHTML = `
     <div class="fileselection">
         <input type="text" name="titrePhoto[${photoIndex}]" placeholder="Titre de la photo" required>
-<input type="file" name="img[${photoIndex}]" id="fileInput[${photoIndex}]" placeholder="Image" required>
-<label for="fileInput[${photoIndex}]" class="custom-file-btn" id="fileLabel[${photoIndex}]">Choisir</label>
+        <input type="file" name="img[${photoIndex}]" id="fileInput[${photoIndex}]" placeholder="Image" required>
+        <label for="fileInput[${photoIndex}]" class="custom-file-btn" id="fileLabel[${photoIndex}]"><i class='bx bx-upload'></i></label>
     </div>
         <div class="tag-input-container">
             <input type="text" class="tag-input" placeholder="#vacances #autre #...">
             <div class="tag-container"></div>
         </div>
         <input type="number" name="note[${photoIndex}]" placeholder="Note (1-5)" min="1" max="5" required>
-        <button type="button" class="remove-photo">Supprimer</button>
+        <button type="button" class="remove-photo"><i class='bx bx-trash' ></i></button>
     `;
 
     // Ajouter la nouvelle div au conteneur de photos
