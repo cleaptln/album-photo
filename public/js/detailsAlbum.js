@@ -1,6 +1,5 @@
 const circleButton = document.getElementById("circleButton");
 const radioList = document.getElementById("radioList");
-
 // Activé l'expension au clique du bouton
 circleButton.addEventListener("click", (event) => {
     event.stopPropagation(); // Prevent event bubbling to body
@@ -33,6 +32,7 @@ document.getElementById('add-photo').addEventListener('click', function() {
         </div>
         <input type="number" name="note[${photoIndex}]" placeholder="Note (1-5)" min="1" max="5" required>
         <button type="button" class="remove-photo"><i class='bx bx-trash' ></i></button>
+
     `;
 
     // Ajouter la nouvelle div au conteneur de photos
@@ -83,3 +83,22 @@ function addTag(tag, photoIndex) {
     tagContainer.appendChild(hiddenInput);
 }
 
+
+document.addEventListener('DOMContentLoaded', function () {
+    const addPhotoButton = document.getElementById('add-photo');
+    const submitContainer = document.getElementById('submit-container');
+
+    addPhotoButton.addEventListener('click', function () {
+        // Ajouter des champs pour une nouvelle photo (vous pouvez personnaliser ceci selon vos besoins)
+        const photosContainer = document.getElementById('photos-container');
+        const newPhotoDiv = document.createElement('div');
+        
+        // Vérifier si le bouton de soumission n'existe pas déjà
+        if (!submitContainer.querySelector('input[type="submit"]')) {
+            const submitButton = document.createElement('input');
+            submitButton.type = 'submit';
+            submitButton.value = 'Valider';
+            submitContainer.appendChild(submitButton);
+        }
+    });
+});

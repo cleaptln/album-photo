@@ -79,15 +79,11 @@ class MonControleur extends Controller
     }
 
     function userAlbums($id) {
-
-        $albums = Album::where('user_id', Auth::id()) 
-        ->with(['photos' => function ($query) {
-            $query->take(4);  // 4 photos par album
-        }])->get();
-
+        $albums = Album::where('user_id', Auth::id())
+            ->with(['photos' => function ($query) {
+            }])->get();
+    
         return view('userAlbums', compact('albums'));
-
-
     }
 
     function creerAlbum() {

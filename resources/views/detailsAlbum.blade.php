@@ -74,8 +74,8 @@
                 <button type="button" id="add-photo">Ajouter une photo</button> 
                 <br />
 
-
-                <input type="submit" value="Valider">
+                <!-- Conteneur pour le bouton de soumission -->
+                <div id="submit-container"></div>
             </form>
         @endif
     @endauth

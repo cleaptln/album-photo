@@ -734,3 +734,44 @@ input[type="checkbox"]{
     background-color:rgb(188, 5, 5);
     color: #f0f0f0;
    }
+
+   
+/** USERALBUM **/
+
+.albumGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes de largeur égale */
+    gap: 10px; /* Espace entre les photos */
+    padding: 10px; /* Ajout de padding autour du conteneur */
+    border: 1px solid #ccc; /* Bordure autour du conteneur */
+    border-radius: 8px; /* Coins arrondis */
+    max-width: 800px; /* Largeur maximale du conteneur */
+    margin: 0 auto; /* Centrage du conteneur */
+}
+
+.photoGrid {
+    overflow: hidden; /* Cache le débordement des photos */
+    border: 1px solid #ddd; /* Bordure autour des photos */
+    border-radius: 4px; /* Coins arrondis des photos */
+    transition: transform 0.3s ease; /* Transition pour l'effet de survol */
+}
+
+.photoGrid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.boiteAlbum {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.photoGrid:hover {
+    transform: scale(1.05); /* Agrandissement léger lors du survol */
+}
