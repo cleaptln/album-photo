@@ -641,7 +641,7 @@ input[type="checkbox"]{
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background-color: #22223b;
+    border: 2px #22223b solid;
     border-radius: 30px;
     margin-top: 2rem;
 
@@ -655,7 +655,7 @@ input[type="checkbox"]{
     justify-content: space-between;
     display: flex;
     align-items: center;
-    width: 8em;
+    width: 9em;
     margin: 1em;
   }
 
@@ -681,8 +681,10 @@ input[type="checkbox"]{
     padding: 10px;
     border-radius: 100px;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 0.5em;
     margin-left: auto;
+    max-height: 0.9em;
+    border:2px solid #22223b;
   }
 
   .custom-file-btn:hover{
@@ -700,6 +702,10 @@ input[type="checkbox"]{
     border: white 2px solid;
    }
 
+   .tag-input:focus {
+    border:2px solid #22223b;
+   }
+
    input[name^="note"] {
     padding: 1em;
     border-radius: 100px;
@@ -707,6 +713,10 @@ input[type="checkbox"]{
     width: 20em;
     height: 2em;
     border: white 2px solid;
+   }
+
+   input[name^="note"]:focus {
+    border:2px solid #22223b;
    }
    
    .remove-photo {

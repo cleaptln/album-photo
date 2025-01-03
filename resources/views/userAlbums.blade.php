@@ -1,6 +1,8 @@
 @extends('layout')
 @section('contenu')
 
+<h1 class="titre_album">Vos albums<h1>
+
 @foreach($albums as $album)
     @foreach($album->photos as $p)
         <img src="{{ $p->image }}" alt="{{ $p->titre }}" />
