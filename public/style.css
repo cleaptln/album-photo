@@ -787,3 +787,7 @@ input[type="checkbox"]{
 .photoGrid:hover {
     transform: scale(1.05); /* Agrandissement léger lors du survol */
 }
+
+ .albumGrid .photoGrid.span-2 {
+    grid-column: span 2;
+}

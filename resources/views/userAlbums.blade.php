@@ -21,4 +21,6 @@
 </div>
 @endsection
 
-
+@section('script')
+    <script src="{{env('APP_URL')}}/js/userAlbums.js"></script>
+@endsection
